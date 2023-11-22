@@ -1,0 +1,4 @@
+model
+processed_data
+*.pyc
+logs
