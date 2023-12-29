@@ -1,7 +1,7 @@
 from torch.utils.data import Dataset
 from torchvision import transforms as T
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler,MinMaxScaler
 import numpy as np
 import torch
 from imblearn.over_sampling import SMOTE
@@ -18,6 +18,7 @@ class ElevatorDataset(Dataset):
 
 
         scaler = StandardScaler()
+        # scaler = MinMaxScaler()
         for column in ['data1', 'data2', 'data3']:
             df[column] = df[column].apply(lambda x: scaler.fit_transform(np.array(x).reshape(-1, 1)).flatten())
 
@@ -36,17 +37,18 @@ class ElevatorDataset(Dataset):
     def __len__(self):
         return len(self.data)
 
-    def norm(self,d):
-        return (d-d.min())/(d.max()-d.min())
+    # def norm(self,d):
+    #     return (d-d.min())/(d.max()-d.min())
 
     def __getitem__(self, index):
-        d1=torch.tensor(self.df['data1'][index], dtype=torch.float32)
-        d1=self.norm(d1)
-        d2=torch.tensor(self.df['data2'][index], dtype=torch.float32)
-        d2=self.norm(d2)
-        d3=torch.tensor(self.df['data3'][index], dtype=torch.float32)
-        d3=self.norm(d3)
-        data = torch.cat((d1,d2,d3),0)
+        # d1=torch.tensor(self.df['data1'][index], dtype=torch.float32)
+        # d1=self.norm(d1)
+        # d2=torch.tensor(self.df['data2'][index], dtype=torch.float32)
+        # d2=self.norm(d2)
+        # d3=torch.tensor(self.df['data3'][index], dtype=torch.float32)
+        # d3=self.norm(d3)
+        # data = torch.cat((d1,d2,d3),0)
+
         data = self.data[index]
         label = self.label[index]
 
@@ -80,7 +82,9 @@ class augDataset(Dataset):
             label.append(l)
         self.data=np.array(data)
         self.label=np.array(label)
-        sm = SMOTE(sampling_strategy={0:7000,1:4000,2:3000,3:2000,4:1000,5:1000}, random_state=42)
+        aug_num = {0:9500,1:4000,2:3000,3:2000,4:1000,5:1000}
+        print('Augment number:',aug_num)
+        sm = SMOTE(sampling_strategy=aug_num, random_state=42)
         self.data, self.label = sm.fit_resample(self.data, self.label)
         print('Augmented by SMOTE.')
 

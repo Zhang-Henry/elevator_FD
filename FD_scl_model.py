@@ -111,6 +111,7 @@ class FD_SCL(nn.Module):
 
         self.classifier = classifier.fit(X_train, y_train)
 
+
     # common classify function
     def KNN_SVC_classify(self, inputs):
         torch.no_grad()
