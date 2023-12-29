@@ -1,0 +1,27 @@
+Namespace(alpha=[0.25, 0.25, 0.4, 0.4, 0.75, 0.75], bz=1024, epochs=150, gamma=2.0, lr=0.0001, num_classes=6)
+class
+0    9135
+1    2317
+2    1819
+3    1390
+4     225
+5     149
+Name: count, dtype: int64
+Train set class distribution: Counter({0: 7700, 1: 1927, 2: 1526, 3: 1167, 4: 162, 5: 94})
+Validation set class distribution: Counter({0: 1395, 1: 350, 2: 253, 3: 183, 4: 23, 5: 15})
+Test set class distribution: Counter({0: 40, 1: 40, 2: 40, 3: 40, 4: 40, 5: 40})
+Augment number: {0: 7000, 1: 4000, 2: 3000, 3: 2000, 4: 1000, 5: 1000}
+Traceback (most recent call last):
+  File "FD.py", line 42, in <module>
+    train_dataset=augDataset(train_dataset)
+  File "/home/jianzhang/hrzhang/elevator_FD/dataset.py", line 88, in __init__
+    self.data, self.label = sm.fit_resample(self.data, self.label)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/imblearn/base.py", line 208, in fit_resample
+    return super().fit_resample(X, y)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/imblearn/base.py", line 108, in fit_resample
+    self.sampling_strategy_ = check_sampling_strategy(
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/imblearn/utils/_validation.py", line 536, in check_sampling_strategy
+    sorted(_sampling_strategy_dict(sampling_strategy, y, sampling_type).items())
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/imblearn/utils/_validation.py", line 314, in _sampling_strategy_dict
+    raise ValueError(
+ValueError: With over-sampling methods, the number of samples in a class should be greater or equal to the original number of samples. Originally, there is 9095 samples and 7000 samples are asked.

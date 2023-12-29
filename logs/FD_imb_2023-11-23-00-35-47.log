@@ -1,0 +1,57 @@
+Namespace(alpha=[0.25, 0.6, 0.6, 0.6, 0.4, 0.4], bz=1024, epochs=150, gamma=2.0, lr=0.0001, num_classes=6)
+class
+0    9135
+1    2317
+2    1819
+3    1390
+4     225
+5     149
+Name: count, dtype: int64
+Train set class distribution: Counter({0: 7676, 1: 1969, 2: 1512, 3: 1163, 4: 163, 5: 93})
+Validation set class distribution: Counter({0: 1419, 1: 308, 2: 267, 3: 187, 4: 22, 5: 16})
+Test set class distribution: Counter({0: 40, 1: 40, 2: 40, 3: 40, 4: 40, 5: 40})
+Augment number: {0: 9500, 1: 4000, 2: 3000, 3: 2000, 4: 1000, 5: 1000}
+Augmented by SMOTE.
+  0%|          | 0/150 [00:00<?, ?it/s]  0%|          | 0/150 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "FD.py", line 70, in <module>
+    outputs = model(inputs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/hrzhang/elevator_FD/models/resnet2.py", line 146, in forward
+    x = self.encoder(x)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/hrzhang/elevator_FD/models/resnet2.py", line 29, in forward
+    identity = self.downsample(x)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 310, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 306, in _conv_forward
+    return F.conv1d(input, weight, bias, self.stride,
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 58.00 MiB. GPU 0 has a total capacty of 23.69 GiB of which 35.94 MiB is free. Process 292395 has 7.54 GiB memory in use. Including non-PyTorch memory, this process has 5.05 GiB memory in use. Process 1963599 has 11.06 GiB memory in use. Of the allocated memory 3.63 GiB is allocated by PyTorch, and 101.54 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

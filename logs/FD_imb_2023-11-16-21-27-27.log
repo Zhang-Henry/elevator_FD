@@ -1,0 +1,55 @@
+class
+0    6818
+3    2317
+1    1819
+2    1390
+4     225
+5     149
+Name: count, dtype: int64
+Augmented by SMOTE.
+Train dataset size: 17000
+Test dataset size: 1909
+Val dataset size: 1907
+  0%|          | 0/150 [00:00<?, ?it/s]  0%|          | 0/150 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "FD.py", line 64, in <module>
+    outputs = model(inputs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/hrzhang/elevator/models/resnet2.py", line 146, in forward
+    x = self.encoder(x)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/hrzhang/elevator/models/resnet2.py", line 29, in forward
+    identity = self.downsample(x)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 310, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 306, in _conv_forward
+    return F.conv1d(input, weight, bias, self.stride,
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 232.00 MiB. GPU 0 has a total capacty of 23.69 GiB of which 93.62 MiB is free. Process 3963978 has 4.66 GiB memory in use. Process 3958356 has 6.40 GiB memory in use. Process 4140314 has 2.50 GiB memory in use. Including non-PyTorch memory, this process has 10.03 GiB memory in use. Of the allocated memory 8.23 GiB is allocated by PyTorch, and 487.15 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

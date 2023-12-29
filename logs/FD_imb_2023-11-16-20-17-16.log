@@ -1,0 +1,16 @@
+class
+0    6818
+3    2317
+1    1819
+2    1390
+4     225
+5     149
+Name: count, dtype: int64
+Traceback (most recent call last):
+  File "FD.py", line 28, in <module>
+    train_dataset=augDataset(train_dataset)
+  File "/home/jianzhang/hrzhang/elevator/dataset.py", line 67, in __init__
+    data.append(list(d))
+  File "/home/jianzhang/anaconda3/envs/elevator/lib/python3.8/site-packages/torch/_tensor.py", line 1000, in __iter__
+    return iter(self.unbind(0))
+KeyboardInterrupt
